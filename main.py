@@ -12,7 +12,7 @@ BACKGROUND_COLOR = "#000000"
 
 
 class Snake:
-    
+
     def __init__(self):
         self.body_size = BODY_PARTS
         self.coordinates = []
@@ -28,10 +28,11 @@ class Snake:
 
 class Food:
     def __init__(self):
-        x = random.randint(0, int((GAME_WIDTH/SPACE_SIZE) - 1)*SPACE_SIZE)
-        y = random.randint(0, int((GAME_HEIGHT/SPACE_SIZE) - 1)*SPACE_SIZE)
 
-        self.coordinates = [x,y]
+        x = random.randint(0, int(GAME_WIDTH / SPACE_SIZE)-1) * SPACE_SIZE
+        y = random.randint(0, int(GAME_HEIGHT / SPACE_SIZE) - 1) * SPACE_SIZE
+
+        self.coordinates = [x, y]
 
         canvas.create_oval(x, y, x + SPACE_SIZE, y + SPACE_SIZE, fill=FOOD_COLOR, tag="food")
 
@@ -89,7 +90,7 @@ def change_direction(new_direction):
     elif new_direction == 'down':
         if direction != 'up':
             direction = new_direction
-    
+
 def check_collisions(snake):
     x, y = snake.coordinates[0]
 
@@ -107,7 +108,7 @@ def check_collisions(snake):
 def game_over():
     canvas.delete(ALL)
     canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2,
-     font=('comicsans', 70), text="GAME OVER", fill="red", tag="gameover")
+                       font=('comicsans',70), text="GAME OVER", fill="red", tag="gameover")
 
 window = Tk()
 window.title("Snake game")
@@ -119,8 +120,7 @@ direction = 'down'
 label = Label(window, text="Score:{}".format(score), font=('consolas', 40))
 label.pack()
 
-canvas = Canvas(window, bg=BACKGROUND_COLOR,
-                height=GAME_HEIGHT, width=GAME_WIDTH)
+canvas = Canvas(window, bg=BACKGROUND_COLOR, height=GAME_HEIGHT, width=GAME_WIDTH)
 canvas.pack()
 
 window.update()
