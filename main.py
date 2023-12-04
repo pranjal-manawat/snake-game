@@ -3,7 +3,7 @@ import random
 
 GAME_WIDTH = 1000
 GAME_HEIGHT = 500
-SPEED = 50
+SPEED = 100
 SPACE_SIZE = 30
 BODY_PARTS = 3
 SNAKE_COLOR = "#00FF00"
@@ -12,7 +12,6 @@ BACKGROUND_COLOR = "#000000"
 
 
 class Snake:
-
     def __init__(self):
         self.body_size = BODY_PARTS
         self.coordinates = []
@@ -115,7 +114,7 @@ window.title("Snake game")
 window.resizable(False, False)
 
 score = 0
-direction = 'down'
+direction = 'right'
 
 label = Label(window, text="Score:{}".format(score), font=('consolas', 40))
 label.pack()
